@@ -1,0 +1,28 @@
+apply plugin: 'java'
+apply plugin: 'jetty'
+apply plugin: 'idea'
+
+ext.baseName = 'benchmark-api'
+group = 'riant.neo'
+version = '0.1.0'
+sourceCompatibility = 1.7
+targetCompatibility = 1.7
+compileJava.options.encoding = 'UTF-8'
+javadoc.options.encoding = 'UTF-8'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'org.slf4j:slf4j-api:1.7.6'
+    runtime 'ch.qos.logback:logback-core:1.1.1'
+    runtime 'ch.qos.logback:logback-classic:1.1.1'
+
+    compile('org.springframework:spring-context:4.0.0.RELEASE',
+            'org.springframework:spring-web:4.0.0.RELEASE',
+            'org.springframework:spring-webmvc:4.0.0.RELEASE')
+
+    compile 'org.apache.cxf:cxf-rt-frontend-jaxrs:2.7.6'
+    compile 'org.apache.servicemix.specs:org.apache.servicemix.specs.jsr339-api-m10:2.2.0'
+}
